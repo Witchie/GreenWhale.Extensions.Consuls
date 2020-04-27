@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GreenWhale.Extensions.Consuls", "GreenWhale.Extensions.Consuls\GreenWhale.Extensions.Consuls.csproj", "{408F1707-186C-4BB4-9C25-1282E675A00E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GreenWhale.Extensions.Consuls.UnitTest", "GreenWhale.Extensions.Consuls.UnitTest\GreenWhale.Extensions.Consuls.UnitTest.csproj", "{57C7CE4B-DC87-4F6D-928C-1103D523D6FD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LunchApplication", "UnitTest\LunchApplication.csproj", "{C7E8FC77-5029-4160-81A1-F5180FDCCA57}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{4E71F2AB-67DB-4DFE-ACBA-15AE0D2E9B17}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{408F1707-186C-4BB4-9C25-1282E675A00E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{408F1707-186C-4BB4-9C25-1282E675A00E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{408F1707-186C-4BB4-9C25-1282E675A00E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{408F1707-186C-4BB4-9C25-1282E675A00E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57C7CE4B-DC87-4F6D-928C-1103D523D6FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57C7CE4B-DC87-4F6D-928C-1103D523D6FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57C7CE4B-DC87-4F6D-928C-1103D523D6FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57C7CE4B-DC87-4F6D-928C-1103D523D6FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7E8FC77-5029-4160-81A1-F5180FDCCA57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7E8FC77-5029-4160-81A1-F5180FDCCA57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7E8FC77-5029-4160-81A1-F5180FDCCA57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7E8FC77-5029-4160-81A1-F5180FDCCA57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C7E8FC77-5029-4160-81A1-F5180FDCCA57} = {4E71F2AB-67DB-4DFE-ACBA-15AE0D2E9B17}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DD36AE2B-ADEE-475D-B27C-AAAB5C5074B2}
+	EndGlobalSection
+EndGlobal
