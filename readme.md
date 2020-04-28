@@ -32,6 +32,22 @@ Nuget安装`GreenWhale.Extensions.Consuls` 依次添加Consul，并配置Consul�
                     UseEnvironment = true,
                 };
             });
+            services.AddPolly().Configure(s=>
+            {
+                s.TimeOutTimeSpan = TimeSpan.FromSeconds(5);
+                s.RetryCount = 2;
+                s.FallBackRespond = new FallBackRespondMessage
+                {
+                    Content = "服务已经降级",
+                    StatusCode = System.Net.HttpStatusCode.NotFound
+                };
+                s.CircuitBreaker = new CircuitBreakerRespondMessage
+                {
+                    Content = "服务发生熔断",
+                    RecoveryTimeSpan = TimeSpan.FromSeconds(20),
+                    ToCloseCount = 2
+                };
+            });
             services.AddControllers();
             services.AddHealthChecks();
         }
@@ -48,6 +64,7 @@ Nuget安装`GreenWhale.Extensions.Consuls` 依次添加Consul，并配置Consul�
 
             app.UseAuthorization();
             app.UseConsulBuilder().UseConsul();
+            app.UsePollyBuilder().UsePollyDefault();
             app.UseHealthChecks(new Microsoft.AspNetCore.Http.PathString("/health"));
             app.UseEndpoints(endpoints =>
             {
@@ -71,10 +88,11 @@ Nuget安装`GreenWhale.Extensions.Consuls` 依次添加Consul，并配置Consul�
         }
 
         [HttpGet]
-        public async Task<IReadOnlyList<CatalogService>> Get()
+        public async Task<Uri> Get()
         {
-            var services= await  consulDiscoveryService.Discovery(nameof(Startup));
-            return services;
+            var services= await  consulDiscoveryService.Find("Startup");
+            _logger.LogInformation("服务的URI已查找到");
+            return services.BaseAddress;
         }
     }
 ```
