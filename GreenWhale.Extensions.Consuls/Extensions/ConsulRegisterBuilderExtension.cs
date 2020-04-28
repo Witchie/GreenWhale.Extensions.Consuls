@@ -88,10 +88,18 @@ namespace Microsoft.Extensions.DependencyInjection
 		/// </summary>
 		public static  IConsulBuilder Register(this IConsulBuilder builder)
 		{
-			builder.Client.Config.Address = new Uri(builder.NodeInfo.ServerAddress);
-			var info= builder.NodeInfo.Convert(builder.Builder);
-			builder.Client.Agent.ServiceRegister(info).Wait();
-			return builder;
+			try
+			{
+				builder.Client.Config.Address = new Uri(builder.NodeInfo.ServerAddress);
+				var info = builder.NodeInfo.Convert(builder.Builder);
+				builder.Client.Agent.ServiceRegister(info).Wait();
+				return builder;
+			}
+			catch (Exception exe)
+			{
+				throw new Exception("无法连接到Consul服务器",exe);
+			}
+
 		}
 		/// <summary>
 		/// 从服务中心注销当前服务

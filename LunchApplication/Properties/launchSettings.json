@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "UnitTest": {
+    "LunchApplication": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",

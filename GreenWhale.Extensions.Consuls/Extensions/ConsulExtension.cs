@@ -8,6 +8,10 @@ using GreenWhale.Extensions.Consuls.Properties;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using System.Linq;
 using System.Collections.Generic;
+using Polly;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Microsoft.Extensions.DependencyInjection
 {

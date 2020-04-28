@@ -123,4 +123,19 @@
   <data name="maybe you use iisexpress" xml:space="preserve">
     <value>使用iis可能出现该异常，如果要使用iis则必须手动指定本机的地址和端口，否则本机端口和地址可以为空</value>
   </data>
+  <data name="opening time" xml:space="preserve">
+    <value>服务断开时间{0}</value>
+  </data>
+  <data name="service has borken down" xml:space="preserve">
+    <value>服务由于异常被迫断开</value>
+  </data>
+  <data name="service is half open" xml:space="preserve">
+    <value>服务处于版开启状态</value>
+  </data>
+  <data name="unable connect to consul" xml:space="preserve">
+    <value>服务连接到consul服务器，请检查consul服务是否启用，防火墙是否允许</value>
+  </data>
+  <data name="you must add polly first" xml:space="preserve">
+    <value>你必须先添加Polly服务</value>
+  </data>
 </root>

@@ -14,14 +14,7 @@ namespace UnitTest.Controllers
     public class WeatherForecastController : ControllerBase
     {
         private readonly IConsulDiscoveryService consulDiscoveryService;
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<WeatherForecastController> _logger;
-
-
         public WeatherForecastController(ILogger<WeatherForecastController> logger, IConsulDiscoveryService consulDiscoveryService)
         {
             _logger = logger;
@@ -29,11 +22,11 @@ namespace UnitTest.Controllers
         }
 
         [HttpGet]
-        public async Task<IReadOnlyList<CatalogService>> Get()
+        public async Task<Uri> Get()
         {
-            var services= await  consulDiscoveryService.Discovery(nameof(Startup));
-            _logger.LogInformation("查找服务");
-            return services;
+            var services= await  consulDiscoveryService.Find("Startup");
+            _logger.LogInformation("服务的URI已查找到");
+            return services.BaseAddress;
         }
     }
 }

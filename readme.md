@@ -1,4 +1,4 @@
-## Consul的注册于发现
+## Consul的注册与发现
 
 **使用方式**
 
@@ -118,7 +118,7 @@ Nuget安装`GreenWhale.Extensions.Consuls` 依次添加Consul，并配置Consul�
 		public string HealthCheckPath { get; set; } = "/health";
 	}
 ```
-当UseEnvironment==true 时将自动用 aspnetcore监听的地址和端口，当为false时，你需要手动指定本机的地址和端口
+当`UseEnvironment==true` 时将自动用 aspnetcore监听的地址和端口，当为false时，你需要手动指定本机的地址和端口
 ```cs
 	/// <summary>
 	/// 本机服务器

@@ -36,6 +36,22 @@ namespace UnitTest
                     UseEnvironment = true,
                 };
             });
+            services.AddPolly().Configure(s=>
+            {
+                s.TimeOutTimeSpan = TimeSpan.FromSeconds(5);
+                s.RetryCount = 2;
+                s.FallBackRespond = new FallBackRespondMessage
+                {
+                    Content = "服务已经降级",
+                    StatusCode = System.Net.HttpStatusCode.NotFound
+                };
+                s.CircuitBreaker = new CircuitBreakerRespondMessage
+                {
+                    Content = "服务发生熔断",
+                    RecoveryTimeSpan = TimeSpan.FromSeconds(20),
+                    ToCloseCount = 2
+                };
+            });
             services.AddControllers();
             services.AddHealthChecks();
         }
@@ -52,6 +68,7 @@ namespace UnitTest
 
             app.UseAuthorization();
             app.UseConsulBuilder().UseConsul();
+            app.UsePollyBuilder().UsePollyDefault();
             app.UseHealthChecks(new Microsoft.AspNetCore.Http.PathString("/health"));
             app.UseEndpoints(endpoints =>
             {
