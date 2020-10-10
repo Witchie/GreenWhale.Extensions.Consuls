@@ -17,25 +17,21 @@ namespace Microsoft.Extensions.DependencyInjection
 		{
 			serviceProvider = provider;
 		}
-		private IServiceProvider serviceProvider;
+		private readonly IServiceProvider serviceProvider;
 		/// <summary>
 		/// 选择负载均衡器
 		/// </summary>
 		/// <param name="method"></param>
 		/// <returns></returns>
-		public LoadBalanceAbstract Select(LoadBalanceMethod method)
+		public LoadBalanceAbstract? Select(LoadBalanceMethod method)
 		{
-			switch (method)
-			{
-				case LoadBalanceMethod.Random:
-					return serviceProvider.GetService<LoadBalanceRandom>();
-				case LoadBalanceMethod.None:
-					return serviceProvider.GetService<LoadBalanceNone>();
-				case LoadBalanceMethod.Increment:
-					return serviceProvider.GetService<LoadBalanceIncrement>();
-				default:
-					throw new NotSupportedException(method.ToString());
-			}
-		}
+            return method switch
+            {
+                LoadBalanceMethod.Random => serviceProvider.GetService<LoadBalanceRandom?>(),
+                LoadBalanceMethod.None => serviceProvider.GetService<LoadBalanceNone?>(),
+                LoadBalanceMethod.Increment => serviceProvider.GetService<LoadBalanceIncrement?>(),
+                _ => throw new NotSupportedException(method.ToString()),
+            };
+        }
 	}
 }

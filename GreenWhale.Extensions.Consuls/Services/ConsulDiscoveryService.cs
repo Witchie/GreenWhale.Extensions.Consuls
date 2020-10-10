@@ -18,11 +18,12 @@ namespace GreenWhale.Extensions.Consuls
 		/// 服务提供器
 		/// </summary>
 		public IServiceProvider ServiceProvider { get; }
-		/// <summary>
-		/// Consul客户端发现服务
-		/// </summary>
-		/// <param name="consulClient"></param>
-		public ConsulDiscoveryService(ConsulClient consulClient, IServiceProvider serviceProvider)
+        /// <summary>
+        /// Consul客户端发现服务
+        /// </summary>
+        /// <param name="consulClient"></param>
+        /// <param name="serviceProvider"></param>
+        public ConsulDiscoveryService(ConsulClient consulClient, IServiceProvider serviceProvider)
 		{
 			this.ConsulClient = consulClient;
 			ServiceProvider = serviceProvider;

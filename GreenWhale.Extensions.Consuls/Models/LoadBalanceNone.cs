@@ -15,7 +15,7 @@ namespace GreenWhale.Extensions.Consuls
 		/// <typeparam name="T"></typeparam>
 		/// <param name="list"></param>
 		/// <returns></returns>
-		public override T Select<T>(IEnumerable<T> list)
+		public override T? Select<T>(IEnumerable<T> list) where T : class
 		{
 			return list.FirstOrDefault();
 		}

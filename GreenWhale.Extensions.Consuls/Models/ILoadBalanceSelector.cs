@@ -14,6 +14,6 @@ namespace Microsoft.Extensions.DependencyInjection
 		/// </summary>
 		/// <param name="method"></param>
 		/// <returns></returns>
-		LoadBalanceAbstract Select(LoadBalanceMethod method);
+		LoadBalanceAbstract? Select(LoadBalanceMethod method);
 	}
 }

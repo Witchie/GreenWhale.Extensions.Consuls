@@ -1,19 +1,22 @@
 ﻿using Consul;
+
 using GreenWhale.Extensions.Consuls;
 using GreenWhale.Extensions.Consuls.Properties;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.Extensions.Hosting;
+
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
-	/// <summary>
-	/// Consul构建器扩展
-	/// </summary>
-	public static class ConsulRegisterBuilderExtension
+    /// <summary>
+    /// Consul构建器扩展
+    /// </summary>
+    public static class ConsulRegisterBuilderExtension
 	{
 		/// <summary>
 		/// 转换为 注册服务模型

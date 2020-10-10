@@ -14,6 +14,6 @@ namespace GreenWhale.Extensions.Consuls
 		/// <typeparam name="T"></typeparam>
 		/// <param name="list"></param>
 		/// <returns></returns>
-		public abstract T Select<T>(IEnumerable<T> list);
+		public abstract T? Select<T>(IEnumerable<T> list) where T : class;
 	}
 }
