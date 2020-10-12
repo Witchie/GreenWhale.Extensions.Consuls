@@ -28,10 +28,7 @@ namespace Microsoft.Extensions.DependencyInjection
 		{
 			var client=service.AddHttpClient(clientName);
 			service.AddSingleton<IPollyBuilder>(new PollyBuilder(client));
-			service.AddSingleton<LoadBalanceNone>();
-			service.AddSingleton<LoadBalanceRandom>();
-			service.AddSingleton<LoadBalanceIncrement>();
-			service.AddTransient<ILoadBalanceSelector, LoadBalanceSelector>();
+
 			return service.AddOptions<PollyInfo>();
 		}
 		/// <summary>

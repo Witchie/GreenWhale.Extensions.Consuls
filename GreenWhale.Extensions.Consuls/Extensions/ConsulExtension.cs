@@ -29,6 +29,10 @@ namespace Microsoft.Extensions.DependencyInjection
 		{
 			services.AddSingleton<ConsulClient>();
 			services.AddTransient<IConsulDiscoveryService, ConsulDiscoveryService>();
+			services.AddSingleton<LoadBalanceNone>();
+			services.AddSingleton<LoadBalanceRandom>();
+			services.AddSingleton<LoadBalanceIncrement>();
+			services.AddTransient<ILoadBalanceSelector, LoadBalanceSelector>();
 			return services.AddOptions<NodeInfo>();
 		}
 
