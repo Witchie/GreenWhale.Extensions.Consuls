@@ -7,7 +7,7 @@ namespace Microsoft.Extensions.DependencyInjection
 		/// <summary>
 		/// 转换成URL
 		/// </summary>
-		/// <param name="content"></param>
+		/// <param name="content">地址信息</param>
 		/// <returns></returns>
 		public static Uri ToUri(this string content)
 		{
